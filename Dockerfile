@@ -1,17 +1,18 @@
 FROM ubuntu:14.04
+
 MAINTAINER Peter Drahoš <drahosp@gmail.com>
 
-RUN \
-    apt-get update && \
-    apt-get install -y libtool autoconf automake cmake libncurses5-dev g++ pkg-config unzip git curl zsh tmux
+# Copy dotfiles
+COPY ./ /root/.dotfiles/
 
-RUN \
-    git clone https://github.com/neovim/neovim.git nvim && \
-    cd nvim && \
-    make && make install && \
-    cd ../ && rm -rf nvim
+ENV HOME /root
 
-COPY .* ~
+WORKDIR /root/.dotfiles
 
-ENTRYPOINT nvim
+# Setup environment and initialize plugins
+RUN ./install.sh && \
+    chsh -s /usr/bin/zsh root && \
+    ssh-keygen -t rsa -N "" -f ~/.ssh/id_rsa
+
+ENTRYPOINT zsh -i -c "tmux new-session nvim"
 

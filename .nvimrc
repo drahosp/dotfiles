@@ -1,8 +1,7 @@
 " ---
 " VimPlug
 " ---
-
-" Download and use vim-plug as needed
+" Download and use vim-plug
 if empty(glob('~/.nvim/autoload/plug.vim'))
   silent !curl -fLo ~/.nvim/plug/vim-plug/plug.vim --create-dirs
     \ https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
@@ -28,14 +27,13 @@ Plug 'kien/ctrlp.vim'
 Plug 'majutsushi/tagbar'
 Plug 'altercation/vim-colors-solarized'
 Plug 'airblade/vim-gitgutter'
-Plug 'Shougo/vimshell'
+"Plug 'Shougo/vimshell'
 
 call plug#end()
 
 " ---
 " Syntastic
 " ---
-
 set statusline+=%#warningmsg#
 set statusline+=%{SyntasticStatuslineFlag()}
 set statusline+=%*
@@ -48,7 +46,6 @@ let g:syntastic_check_on_wq = 0
 " ---
 " AirLine
 " ---
-
 " Set theme
 let g:airline_theme='wombat'
 " Show airline with single file
@@ -61,6 +58,10 @@ let g:airline#extensions#tabline#enabled = 1
 " ---
 " Settings
 " ---
+set backupdir=~/.nvim/backup//
+set directory=~/.nvim/swap//
+set undodir=~/.nvim/undo//
+
 filetype plugin indent on
 set number
 
@@ -68,8 +69,11 @@ set number
 syntax enable
 
 " Color theme
-set background=dark
-let g:solarized_termcolors = 256
-let g:solarized_termtrans = 1
-colorscheme solarized
-
+try
+    set background=dark
+    let g:solarized_termcolors = 256
+    let g:solarized_termtrans = 1
+    colorscheme solarized
+catch /^Vim\%((\a\+)\)\=:E185/
+    " deal with it
+endtry

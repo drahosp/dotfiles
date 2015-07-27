@@ -1,3 +1,9 @@
+# Get antigen when not installed
+if ! [[ -a "$HOME/.antigen/antigen.zsh" ]]
+then
+   curl -fLo ~/.antigen/antigen.zsh --create-dir https://raw.githubusercontent.com/zsh-users/antigen/master/antigen.zsh
+fi
+
 source "$HOME/.antigen/antigen.zsh"
 
 # Load various lib files
@@ -34,6 +40,7 @@ if [[ $CURRENT_OS == 'OS X' ]]; then
     antigen bundle brew-cask
     antigen bundle gem
     antigen bundle osx
+    # Restart audio
     alias sr="sudo kextunload /System/Library/Extensions/AppleHDA.kext && sleep 5 && sudo kextload /System/Library/Extensions/AppleHDA.kext"
 elif [[ $CURRENT_OS == 'Linux' ]]; then
     # None so far...
@@ -50,15 +57,22 @@ antigen bundle jdavis/zsh-files
 #
 # Antigen Theme
 #
-export DEFAULT_USER=pd
-#antigen theme agnoster
-source ~/.shell_prompt.sh
+export DEFAULT_USER=$USER
 
-# Secret info
-#antigen bundle git@github.com:jdavis/secret.git
+# Use airline prompt when available
+if [[ -a "$HOME/.prompt.zsh" ]]
+then
+    source "$HOME/.prompt.zsh"
+else
+    antigen theme agnoster
+fi
 
+#
+# Environment Settings
+#
+ZLE_RPROMPT_INDENT=0
 export LANG="en_US.UTF-8"
 export TERM="xterm-256color"
 export PATH="/usr/local/sbin:$PATH"
 export EDITOR="nvim"
-eval $(docker-machine env docker)
+
