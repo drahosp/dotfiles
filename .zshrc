@@ -12,11 +12,11 @@ antigen bundle robbyrussell/oh-my-zsh lib/
 #
 # Antigen Bundles
 #
-
 antigen bundle git
 antigen bundle tmuxinator
 antigen bundle zsh-users/zsh-syntax-highlighting
 antigen bundle rupa/z
+antigen bundle jdavis/zsh-files
 
 # For SSH, starting ssh-agent is annoying
 antigen bundle ssh-agent
@@ -34,7 +34,7 @@ antigen bundle virtualenv
 # Docker Plugins
 antigen bundle docker
 
-# OS specific plugins
+# OS specific settings
 if [[ $CURRENT_OS == 'OS X' ]]; then
     antigen bundle brew
     antigen bundle brew-cask
@@ -48,29 +48,33 @@ elif [[ $CURRENT_OS == 'Linux' ]]; then
     if [[ $DISTRO == 'CentOS' ]]; then
         antigen bundle centos
     fi
-elif [[ $CURRENT_OS == 'Cygwin' ]]; then
-    antigen bundle cygwin
+elif [[ $OSTYPE == 'cygwin' ]]; then
+    alias nvim="vim"	# for now use vim
 fi
-
-antigen bundle jdavis/zsh-files
 
 #
 # Antigen Theme
 #
-export DEFAULT_USER=$USER
-
 # Use airline prompt when available
 if [[ -a "$HOME/.prompt.zsh" ]]
 then
     source "$HOME/.prompt.zsh"
 else
+    export DEFAULT_USER=$USER
     antigen theme agnoster
 fi
 
 #
+# Aliases
+#
+alias e="$EDITOR"
+
+#
 # Environment Settings
 #
-ZLE_RPROMPT_INDENT=0
+export ZLE_RPROMPT_INDENT=0 # Remove tailing space in zsh prompt
+export KEYTIMEOUT=1 # Speed up escape in vim
+
 export LANG="en_US.UTF-8"
 export TERM="xterm-256color"
 export PATH="/usr/local/sbin:$PATH"

@@ -27,6 +27,8 @@ Plug 'kien/ctrlp.vim'
 Plug 'majutsushi/tagbar'
 Plug 'altercation/vim-colors-solarized'
 Plug 'airblade/vim-gitgutter'
+Plug 'scrooloose/nerdtree'
+Plug 'Xuyuanp/nerdtree-git-plugin'
 "Plug 'Shougo/vimshell'
 
 call plug#end()
@@ -58,14 +60,24 @@ let g:airline#extensions#tabline#enabled = 1
 " ---
 " Settings
 " ---
+" enable mouse
+set mouse=a
+set ttymouse=xterm2
+
+set backspace=indent,eol,start " fix for Cygwin backspace
+set timeoutlen=1000 ttimeoutlen=0 " fix escape delay
+
+" Use the same symbols as TextMate for tabstops and EOLs
+set listchars=tab:›\ ,eol:¬
+
+" Teporary file destionation
 set backupdir=~/.nvim/backup//
 set directory=~/.nvim/swap//
 set undodir=~/.nvim/undo//
 
+" Basic settings
 filetype plugin indent on
 set number
-
-" Syntax color
 syntax enable
 
 " Color theme
@@ -77,3 +89,11 @@ try
 catch /^Vim\%((\a\+)\)\=:E185/
     " deal with it
 endtry
+
+" ---
+" Mappings
+" ---
+" Shortcut to rapidly toggle `set list`
+nmap <leader>l :set list!<CR>
+map <C-n> :NERDTreeToggle<CR>
+
