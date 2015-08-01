@@ -62,7 +62,7 @@ let g:airline#extensions#tabline#enabled = 1
 " ---
 " enable mouse
 set mouse=a
-set ttymouse=xterm2
+"set ttymouse=xterm2
 
 set backspace=indent,eol,start " fix for Cygwin backspace
 set timeoutlen=1000 ttimeoutlen=0 " fix escape delay
