@@ -1,0 +1,29 @@
+#!/bin/bash
+
+STORAGE="$HOME/.criu_storage"
+
+# Detach on signal
+trap "tmux detach" SIGGTERM SIGINT EXIT
+
+# Start up new tmux or restore session when possible
+if [ -d "$STORAGE" ]; then
+	echo "Restoring tmux session."
+	# Restore session
+	criu restore --images-dir $STORAGE --restore-detached
+	tmux attach
+else
+	echo "Starting new tmux session."
+	tmux
+fi
+
+# Try to freeze the tmux session
+PID=$(pidof tmux)
+if [[ $PID =~ ^-?[0-9]+$ ]]; then
+	echo "Saving current tmux session."
+	rm -rf $STORAGE
+	mkdir -p $STORAGE
+	criu dump --tree $PID --images-dir $STORAGE
+else
+	echo "No tmux session to save."
+fi
+
