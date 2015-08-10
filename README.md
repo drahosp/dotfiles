@@ -43,5 +43,6 @@ Used software
  - [vim-airline](https://github.com/bling/vim-airline) is used as the central theme management with powerline font support
  - [vim-plug](https://github.com/junegunn/vim-plug) for managing NeoVim plugins with parallel module install support
  - [zsh](http://www.zsh.org) is used as the default shell
- - [Antigen](https://github.com/zsh-users/antigen) simple and lightweight module manager for zsh
+ - [prezto](https://github.com/sorin-ionescu/prezto) Configuration framework for zsh
  - [tmux](http://tmux.github.io) provides session handling and window management
+ - [criu](http://criu.org/Main_Page) checkpoint/restore functionality for Linux in userspace
