@@ -16,22 +16,25 @@ tmux new-session nvim
 Install to Docker using a Dockerfile
 ---
 
+The docker image uses [criu](http://criu.org/Main_Page) to save the tmux session on disconnect. Starting the image again should restore the session and reattach tmux.
+
 ```bash
 git clone https://github.com/drahosp/dotfiles
 cd dotfiles
 
 # Build the image
-docker build -t nvim
+docker build -t nvim .
 
 # Run the image
-docker run -ti --rm --name nvim nvim
+docker run -t -i --privileged --name mynvim nvim
+
+# Restart frozen nvim session
+docker start mynvim ; docker attach mynvim
 ```
 
 Fonts and terminal support
 ---
 The dotfiles are primarily aimed to work with iTerm2. However a [Powerline](https://github.com/powerline/fonts) patched font is required to correctly display the theme. For best results use [Solarized](http://ethanschoonover.com/solarized) dark color theme or switch to different theme by editing the provided `.nvimrc`.
-
-
 
 Used software
 ---
