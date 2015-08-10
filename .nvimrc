@@ -11,7 +11,7 @@ endif
 
 call plug#begin('~/.nvim/plugged')
 
-Plug 'junegunn/vim-plug'
+" Plug 'junegunn/vim-plug'
 Plug 'Shougo/neosnippet.vim'
 Plug 'Shougo/neosnippet-snippets'
 Plug 'Shougo/unite.vim'
@@ -29,7 +29,8 @@ Plug 'altercation/vim-colors-solarized'
 Plug 'airblade/vim-gitgutter'
 Plug 'scrooloose/nerdtree'
 Plug 'Xuyuanp/nerdtree-git-plugin'
-"Plug 'Shougo/vimshell'
+
+Plug 'Valloric/YouCompleteMe', { 'do': './install.sh --clang-completer' }
 
 call plug#end()
 
@@ -65,7 +66,16 @@ set mouse=a
 "set ttymouse=xterm2
 
 set backspace=indent,eol,start " fix for Cygwin backspace
-set timeoutlen=1000 ttimeoutlen=0 " fix escape delay
+
+" fix for escape delay
+if ! has('gui_running')
+    set ttimeoutlen=10
+    augroup FastEscape
+        autocmd!
+        au InsertEnter * set timeoutlen=0
+        au InsertLeave * set timeoutlen=1000
+    augroup END
+endif
 
 " Use the same symbols as TextMate for tabstops and EOLs
 set listchars=tab:›\ ,eol:¬
