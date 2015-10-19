@@ -15,27 +15,27 @@ ln -s $PWD/.prompt.zsh $HOME/.prompt.zsh
 
 # Install neovim tmux and zsh
 if [[ "$OSTYPE" == "linux-gnu" ]]; then
-	apt-get -q update
-	apt-get -qy install zsh tmux curl git
+	sudo apt-get -q update
+	sudo apt-get -qy install zsh tmux curl git
 	mkdir -p $HOME/.nvim
 
 	# CRIU install
 	cd $HOME/.dotfiles
-	apt-get -qy install build-essential libprotobuf-dev libprotobuf-c0-dev protobuf-c-compiler protobuf-compiler python-protobuf
+	sudo apt-get -qy install build-essential libprotobuf-dev libprotobuf-c0-dev protobuf-c-compiler protobuf-compiler python-protobuf
 	git clone https://github.com/xemul/criu && cd criu
 	make
-	cp criu /usr/local/bin
+	sudo cp criu /usr/local/bin
 
 	# neovim install
 	cd $HOME/.dotfiles
-	apt-get -qy install libtool autoconf automake cmake libncurses5-dev g++ pkg-config unzip
+	sudo apt-get -qy install libtool autoconf automake cmake libncurses5-dev g++ pkg-config unzip
 	git clone https://github.com/neovim/neovim && cd neovim
-	make CMAKE_BUILD_TYPE=Release && make install
+	make CMAKE_BUILD_TYPE=Release && sudo make install
 
 	# cleanup
 	cd $HOME
 	rm -rf $HOME/.dotfiles/neovim
-	rm -rf $HOME/.dotfiles/criu 
+	rm -rf $HOME/.dotfiles/criu
 elif [[ "$OSTYPE" == "darwin"* ]]; then
 	brew install git zsh tmux
 	brew tap neovim/neovim
