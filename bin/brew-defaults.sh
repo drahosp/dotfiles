@@ -32,6 +32,9 @@ brew install bash
 brew tap homebrew/versions
 brew install bash-completion2
 
+# Install ZSH
+brew install zsh zsh-completions zsh-syntax-highlighting
+
 # Install `wget` with IRI support.
 brew install wget --with-iri
 
@@ -47,6 +50,10 @@ brew install homebrew/dupes/grep
 brew install homebrew/dupes/openssh
 brew install homebrew/dupes/screen
 brew install homebrew/php/php55 --with-gmp
+
+# Neovim
+brew tap neovim/neovim
+brew install --HEAD neovim
 
 # Install font tools.
 brew tap bramstein/webfonttools
@@ -88,6 +95,7 @@ brew install git
 brew install git-lfs
 brew install imagemagick --with-webp
 brew install lua
+brew install luajit
 brew install lynx
 brew install p7zip
 brew install pigz

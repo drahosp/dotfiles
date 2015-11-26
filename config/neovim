@@ -2,14 +2,14 @@
 " VimPlug
 " ---
 " Download and use vim-plug
-if empty(glob('~/.nvim/autoload/plug.vim'))
-  silent !curl -fLo ~/.nvim/plug/vim-plug/plug.vim --create-dirs
+if empty(glob('~/.config/nvim/autoload/plug.vim'))
+  silent !curl -fLo ~/.config/nvim/plug/vim-plug/plug.vim --create-dirs
         \ https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
-  silent !mkdir -p ~/.nvim/autoload && cd ~/.nvim/autoload && ln -s ../plug/vim-plug/plug.vim .
+  silent !mkdir -p ~/.config/nvim/autoload && cd ~/.config/nvim/autoload && ln -s ../plug/vim-plug/plug.vim .
   autocmd VimEnter * PlugInstall
 endif
 
-call plug#begin('~/.nvim/plugged')
+call plug#begin('~/.config/nvim/plugged')
 
 Plug 'morhetz/gruvbox'
 Plug 'christoomey/vim-tmux-navigator'

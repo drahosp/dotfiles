@@ -1,7 +1,7 @@
-Basic NeoVim dotfiles
+Basic dotfiles for Neovim Tmux and Zsh
 ---
 
-Very basic dotfiles for playing around with Neovim and Docker. The default theme is set up for solarized dark colors with powerline patched fonts.
+My personal dotfiles used with Neovim, Tmux and Zsh on OSX and Linux.
 
 Install on Mac and Linux
 ---
@@ -10,39 +10,19 @@ Install on Mac and Linux
 git clone https://github.com/drahosp/dotfiles ~/.dotfiles
 cd ~/.dotfiles && ./install.sh
 chsh /bin/zsh # if needed
-tmux new-session nvim
 ```
 
-Install to Docker using a Dockerfile
----
+After install Tmux plugins are installed using Ctrl-A I and Neovim plugins using :PlugInstall
 
-The docker image uses [criu](http://criu.org/Main_Page) to save the tmux session on disconnect. Starting the image again should restore the session and reattach tmux.
-
+Setting up OSX defaults and Homebrew
 ```bash
-git clone https://github.com/drahosp/dotfiles
-cd dotfiles
-
-# Build the image
-docker build -t nvim .
-
-# Run the image
-docker run -t -i --privileged --name mynvim nvim
-
-# Restart frozen nvim session
-docker start mynvim ; docker attach mynvim
+osx-defaults.sh
+brew-defaults.sh
 ```
-
-Fonts and terminal support
----
-The dotfiles are primarily aimed to work with iTerm2. However a [Powerline](https://github.com/powerline/fonts) patched font is required to correctly display the theme. For best results use [Solarized](http://ethanschoonover.com/solarized) dark color theme or switch to different theme by editing the provided `.nvimrc`.
 
 Used software
 ---
 
  - [NeoVim](http://neovim.io) next generation commandline text editor
- - [vim-airline](https://github.com/bling/vim-airline) is used as the central theme management with powerline font support
- - [vim-plug](https://github.com/junegunn/vim-plug) for managing NeoVim plugins with parallel module install support
  - [zsh](http://www.zsh.org) is used as the default shell
- - [prezto](https://github.com/sorin-ionescu/prezto) Configuration framework for zsh
  - [tmux](http://tmux.github.io) provides session handling and window management
- - [criu](http://criu.org/Main_Page) checkpoint/restore functionality for Linux in userspace
