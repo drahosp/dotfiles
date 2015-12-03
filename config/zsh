@@ -14,6 +14,7 @@ fi
 export TERM="xterm-256color"
 
 ZSH_THEME="bullet-train"
+DEFAULT_USER="pd"
 export BULLETTRAIN_PROMPT_ROOT="❱"
 export BULLETTRAIN_PROMPT_CHAR="❱"
 export BULLETTRAIN_DIR_EXTENDED=1
@@ -23,12 +24,13 @@ export BULLETTRAIN_NVM_FG=black
 export BULLETTRAIN_RVM_FG=black
 export BULLETTRAIN_VIRTUALENV_FG=black
 export BULLETTRAIN_PROMPT_ADD_NEWLINE=false
-export BULLETTRAIN_IS_SSH_CLIENT=true
 export BULLETTRAIN_CONTEXT_BG=yellow
 export BULLETTRAIN_CONTEXT_FG=black
 
+# When on SSH display context
 if [[ -n "$SSH_CLIENT" ]]; then
-	export BULLETTRAIN_CONTEXT_SHOW=true
+  export BULLETTRAIN_IS_SSH_CLIENT=true
+  export BULLETTRAIN_CONTEXT_SHOW=true
 fi
 
 #export ZLE_PROMPT_INDENT=1
@@ -46,7 +48,7 @@ fi
 # DISABLE_AUTO_UPDATE="true"
 
 # Uncomment the following line to change how often to auto-update (in days).
-# export UPDATE_ZSH_DAYS=13
+export UPDATE_ZSH_DAYS=13
 
 # Uncomment the following line to disable colors in ls.
 # DISABLE_LS_COLORS="true"
@@ -58,12 +60,12 @@ fi
 # ENABLE_CORRECTION="true"
 
 # Uncomment the following line to display red dots whilst waiting for completion.
-# COMPLETION_WAITING_DOTS="true"
+COMPLETION_WAITING_DOTS="true"
 
 # Uncomment the following line if you want to disable marking untracked files
 # under VCS as dirty. This makes repository status check for large repositories
 # much, much faster.
-# DISABLE_UNTRACKED_FILES_DIRTY="true"
+DISABLE_UNTRACKED_FILES_DIRTY="true"
 
 # Uncomment the following line if you want to change the command execution time
 # stamp shown in the history command output.
@@ -104,5 +106,6 @@ export EDITOR='vim'
 # For a full list of active aliases, run `alias`.
 
 alias vim="nvim"
+alias c="clear"
 
 export PATH="$PATH:$HOME/.rvm/bin" # Add RVM to PATH for scripting
