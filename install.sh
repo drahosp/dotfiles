@@ -12,3 +12,5 @@ ln -s $PWD/config/zsh $HOME/.zshrc
 ln -s $PWD/config/tmux $HOME/.tmux.conf
 ln -s $PWD/config/neovim $HOME/.config/nvim/init.vim
 
+# Fix CTRL-H
+ln -s $PWD/xterm-256color.ti $HOME/xterm-256color.ti
