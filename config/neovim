@@ -40,7 +40,7 @@ Plug 'tikhomirov/vim-glsl'
 Plug 'mileszs/ack.vim'
 Plug 'powerman/vim-plugin-viewdoc'
 Plug 'rizzatti/dash.vim'
-Plug 'rdnetto/YCM-Generator'
+"Plug 'rdnetto/YCM-Generator'
 Plug 'Valloric/YouCompleteMe', { 'do': './install.sh --clang-completer' }
 
 call plug#end()

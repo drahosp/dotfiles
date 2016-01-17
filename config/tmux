@@ -15,6 +15,8 @@ set -g @tpm_plugins '                \
 
 # Initialize TMUX plugin manager
 run '~/.dotfiles/tpm/tpm'
+run '~/.tmux/plugins/tmux-battery/battery.tmux'
+run '~/.tmux/plugins/tmux-cpu/cpu.tmux'
 
 # Count windows fom 1
 set -g base-index 1

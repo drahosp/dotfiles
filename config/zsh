@@ -83,7 +83,7 @@ plugins=(git brew osx zsh-syntax-highlighting github colored-man colorize)
 
 # User configuration
 
-export PATH="$HOME/.dotfiles/bin;$HOME/.bin/:/usr/local/sbin:/usr/local/bin:/usr/local/sbin:/usr/bin:/bin:/usr/sbin:/sbin:/opt/X11/bin:/usr/local/MacGPG2/bin"
+export PATH="$HOME/.dotfiles/bin:$HOME/.bin/:/usr/local/sbin:/usr/local/bin:/usr/local/sbin:/usr/bin:/bin:/usr/sbin:/sbin:/opt/X11/bin:/usr/local/MacGPG2/bin"
 # export MANPATH="/usr/local/man:$MANPATH"
 
 source $ZSH/oh-my-zsh.sh
