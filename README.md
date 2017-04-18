@@ -1,10 +1,12 @@
-Basic dotfiles for Neovim Tmux and Zsh
----
+Basic dotfiles for Tmux, Vim and Zsh
+------------------------------------
 
-My personal dotfiles used with Neovim, Tmux and Zsh on OSX and Linux.
+![Terminal Screenshot](img/terminal.png)
+
+My personal dotfiles used with Vim, Tmux and Zsh on OSX and Linux.
 
 Install on Mac and Linux
----
+------------------------
 
 ```bash
 git clone https://github.com/drahosp/dotfiles ~/.dotfiles
@@ -12,17 +14,13 @@ cd ~/.dotfiles && ./install.sh
 chsh /bin/zsh # if needed
 ```
 
-After install Tmux plugins are installed using Ctrl-A I and Neovim plugins using :PlugInstall
+Plugin maintanance
+------------------
 
-Setting up OSX defaults and Homebrew
-```bash
-osx-defaults.sh
-brew-defaults.sh
-```
+After installation each tool will install its own dependencies automatically when run.
 
-Used software
----
+To force Tmux to update all plugins use `Ctrl+A I`.
 
- - [NeoVim](http://neovim.io) next generation commandline text editor
- - [zsh](http://www.zsh.org) is used as the default shell
- - [tmux](http://tmux.github.io) provides session handling and window management
+To update Zsh plugins use `zplug update`
+
+To update Vim plugins use `:PlugUpdate`
