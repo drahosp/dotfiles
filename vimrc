@@ -1,19 +1,16 @@
-" ---
-" VimPlug
-" ---
-" Download and use vim-plug
-if empty(glob('~/.config/nvim/autoload/plug.vim'))
-  silent !curl -fLo ~/.config/nvim/plug/vim-plug/plug.vim --create-dirs
+" :: VimPlug - VIM plugin manager
+if empty(glob('~/.vim/autoload/plug.vim'))
+  silent !curl -fLo ~/.vim/plug/vim-plug/plug.vim --create-dirs
         \ https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
-  silent !mkdir -p ~/.config/nvim/autoload && cd ~/.config/nvim/autoload && ln -s ../plug/vim-plug/plug.vim .
+  silent !mkdir -p ~/.vim/autoload && cd ~/.vim/autoload && ln -s ../plug/vim-plug/plug.vim .
   autocmd VimEnter * PlugInstall
 endif
 
-call plug#begin('~/.config/nvim/plugged')
+call plug#begin('~/.vim/plugged')
 
 Plug 'morhetz/gruvbox'
 Plug 'christoomey/vim-tmux-navigator'
-Plug 'Shougo/unite.vim'
+Plug 'Shougo/denite.nvim'
 Plug 'Shougo/vimfiler.vim'
 Plug 'sheerun/vim-polyglot'
 Plug 'tpope/vim-fugitive'
@@ -26,20 +23,21 @@ Plug 'majutsushi/tagbar'
 Plug 'airblade/vim-gitgutter'
 Plug 'scrooloose/nerdtree'
 Plug 'Xuyuanp/nerdtree-git-plugin'
-Plug 'WolfgangMehner/lua-support'
-Plug 'tpope/vim-dispatch'
+"Plug 'WolfgangMehner/lua-support'
+"Plug 'tpope/vim-dispatch'
 Plug 'Chiel92/vim-autoformat'
-Plug 'SirVer/ultisnips'
-Plug 'honza/vim-snippets'
+"Plug 'SirVer/ultisnips'
+"Plug 'honza/vim-snippets'
 "Plug 'scrooloose/syntastic'
 "Plug 'gilligan/vim-lldb'
-Plug 'critiqjo/lldb.nvim'
+"Plug 'critiqjo/lldb.nvim'
 Plug 'ryanoasis/vim-devicons'
-Plug 'vim-scripts/c.vim'
-Plug 'tikhomirov/vim-glsl'
-Plug 'mileszs/ack.vim'
-Plug 'powerman/vim-plugin-viewdoc'
-Plug 'rizzatti/dash.vim'
+"Plug 'vim-scripts/c.vim'
+"Plug 'tikhomirov/vim-glsl'
+"Plug 'mileszs/ack.vim'
+Plug 'rking/ag.vim'
+"Plug 'powerman/vim-plugin-viewdoc'
+"Plug 'rizzatti/dash.vim'
 "Plug 'rdnetto/YCM-Generator'
 Plug 'Valloric/YouCompleteMe', { 'do': './install.sh --clang-completer' }
 
@@ -96,7 +94,7 @@ let g:ycm_collect_identifiers_from_tags_files = 1 "default 0
 let g:ycm_server_use_vim_stdout = 0 "default 0 (logging to console)
 let g:ycm_server_log_level = 'info' "default info
 
-let g:ycm_global_ycm_extra_conf = '~/.ycm_extra_conf.py'  "where to search for .ycm_extra_conf.py if not found
+"let g:ycm_global_ycm_extra_conf = '~/.ycm_extra_conf.py'  "where to search for .ycm_extra_conf.py if not found
 let g:ycm_confirm_extra_conf = 0
 
 let g:ycm_goto_buffer_command = 'same-buffer' "[ 'same-buffer', 'horizontal-split', 'vertical-split', 'new-tab' ]
@@ -189,7 +187,9 @@ set expandtab
 set tabstop=2
 set shiftwidth=2
 
+" Other
 set clipboard=unnamed
+set term=screen-256color
 
 " ---
 " Post Load Fixes

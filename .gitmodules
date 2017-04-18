@@ -1,6 +1,0 @@
-[submodule "bullet-train"]
-	path = bullet-train
-	url = https://github.com/caiogondim/bullet-train-oh-my-zsh-theme
-[submodule "tpm"]
-	path = tpm
-	url = https://github.com/tmux-plugins/tpm
