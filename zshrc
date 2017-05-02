@@ -31,7 +31,7 @@ zplug "zsh-users/zsh-history-substring-search", defer:3, on:"zsh-users/zsh-synta
 
 # Plugins from oh my zsh
 #zplug "lib/clipboard", from:oh-my-zsh, if:"[[ $OSTYPE == *darwin* ]]"
-zplug "plugins/vi-mode", from:oh-my-zsh
+#zplug "plugins/vi-mode", from:oh-my-zsh
 zplug "plugins/git", from:oh-my-zsh
 #zplug "plugins/brew", from:oh-my-zsh
 
@@ -58,7 +58,7 @@ POWERLEVEL9K_MODE='awesome-fontconfig'
 POWERLEVEL9K_PROMPT_ON_NEWLINE=false
 POWERLEVEL9K_MULTILINE_FIRST_PROMPT_PREFIX=""
 POWERLEVEL9K_MULTILINE_SECOND_PROMPT_PREFIX="❱ "
-POWERLEVEL9K_LEFT_PROMPT_ELEMENTS=(vi_mode context dir dir_writable vcs)
+POWERLEVEL9K_LEFT_PROMPT_ELEMENTS=(context dir dir_writable vcs)
 POWERLEVEL9K_RIGHT_PROMPT_ELEMENTS=(status command_execution_time todo background_jobs os_icon)
 POWERLEVEL9K_DISABLE_RPROMPT=false
 POWERLEVEL9K_ALWAYS_SHOW_CONTEXT=false
