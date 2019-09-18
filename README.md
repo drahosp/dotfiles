@@ -11,7 +11,7 @@ Install on Mac and Linux
 ```bash
 git clone https://github.com/drahosp/dotfiles ~/.dotfiles
 cd ~/.dotfiles && ./install.sh
-chsh /bin/zsh # if needed
+chsh -s /bin/zsh # if needed
 ```
 
 Plugin maintanance
